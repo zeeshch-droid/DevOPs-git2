@@ -54,6 +54,7 @@ jobs:
     permissions:
           id-token: write
           contents: write
+          Issues: write
     steps:
 
       - name: Manual Approval
