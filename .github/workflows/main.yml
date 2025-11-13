@@ -9,6 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+          id-token: write
+          contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -16,6 +21,7 @@ jobs:
       - name: Build
         run: echo "Building HTML... (No build needed for static HTML)"
 
+        
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -25,14 +31,14 @@ jobs:
 
       - name: Test HTML
         run: echo "Testing HTML file structure..."
-
-        permissions:
-          id-token: write
-          contents: read
-
+        
   deploy-development:
     needs: test
     runs-on: ubuntu-latest
+
+    permissions:
+          id-token: write
+          contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -61,10 +67,7 @@ jobs:
       - name: Deploy to Staging
         run: echo "Deploying HTML file to the staging environment..."
 
-        permissions:
-          id-token: write
-          contents: read
-
+        
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
