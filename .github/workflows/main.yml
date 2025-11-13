@@ -12,7 +12,7 @@ jobs:
 
     permissions:
           id-token: write
-          contents: read
+          contents: write
 
     steps:
       - name: Checkout code
@@ -38,7 +38,7 @@ jobs:
 
     permissions:
           id-token: write
-          contents: read
+          contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -53,7 +53,7 @@ jobs:
 
     permissions:
           id-token: write
-          contents: read
+          contents: write
     steps:
 
       - name: Manual Approval
