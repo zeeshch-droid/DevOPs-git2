@@ -50,6 +50,10 @@ jobs:
     needs: deploy-development
     runs-on: ubuntu-latest
     ##if: github.ref == 'refs/heads/development'
+
+    permissions:
+          id-token: write
+          contents: read
     steps:
 
       - name: Manual Approval
