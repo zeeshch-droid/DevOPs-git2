@@ -39,8 +39,11 @@ jobs:
   deploy-staging:
     needs: deploy-development
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/development'
+    ##if: github.ref == 'refs/heads/development'
     steps:
+
+      - name: Manual Approval
+        uses: trstringer/manual-approval@v1
       - name: Checkout code
         uses: actions/checkout@v2
 
